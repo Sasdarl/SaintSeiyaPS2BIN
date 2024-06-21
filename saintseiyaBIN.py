@@ -84,7 +84,7 @@ if Path(args.inpath).is_file() and not Path(args.inpath).is_dir():
         output_folder = outpath.rsplit("/",1)[0]+"/" # Split output into folder and filename
         output_file = outpath.rsplit("/",1)[1]
 
-        if not (len(args.outpath) > 0):
+        if len(output_file) > 0:
             Path(output_folder).mkdir(parents=True,exist_ok=True)
         if (ru32(input_buffer, 0) == 0x53504D43):
             un = decode_lzss_file(args.inpath, outpath)

@@ -75,7 +75,7 @@ if Path(args.inpath).is_file() and not Path(args.inpath).is_dir():
         if len(args.outpath) > 0: # Outpath takes priority!!
             outpath += args.outpath
         else:
-            outpath = (f"{Path(args.inpath).parent}/{Path(args.inpath).stem}") # The default case.
+            outpath = "output.bin"
 
         if not (len(args.outpath) > 0):
             if not outpath == "./": # .// would look strange in the output

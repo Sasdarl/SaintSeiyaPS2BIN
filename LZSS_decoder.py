@@ -1,3 +1,5 @@
+# ORIGINAL WORK BY Danijelk, 07/03/2024
+# MODIFIED 6/20/2024: COMMENTED OUT LEFTOVER DEBUG STATEMENT AND ADDED NOTICE OF ORIGINAL AUTHOR
 #! /usr/bin/env python3
 
 from helpers import Input_stream, Dictionary, LzssConfig, array_to_hexstring

@@ -1,4 +1,5 @@
-
+# ORIGINAL WORK BY Danijelk, 07/03/2024
+# MODIFIED 6/20/2024: ADDED NOTICE OF ORIGINAL AUTHOR
 class Input_stream:
     def __init__(self, data):
         self.data = data

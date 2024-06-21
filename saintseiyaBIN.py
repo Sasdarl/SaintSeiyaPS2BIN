@@ -35,6 +35,7 @@ def decode_lzss_file(input_file, output_file):
     # Write the output to the output file
     with open(output_file, "wb") as f:
         f.write(decompressed_data)
+    return 0
 
 def encode_lzss_file(input_file, output_file):
     # Read the input file
@@ -60,6 +61,7 @@ def encode_lzss_file(input_file, output_file):
         file.write(size.to_bytes(4, byteorder='little'))
         file.write(wu32(0))
         file.write(encoded_data)
+    return 0
 
 parser = argparse.ArgumentParser(description='SS BIN Decompression/Compression') # I was bored
 parser.add_argument("inpath", help="File Input (BIN/TPL)")
@@ -77,14 +79,9 @@ if Path(args.inpath).is_file() and not Path(args.inpath).is_dir():
         else:
             outpath = "output.bin"
 
-        if not (len(args.outpath) > 0):
-            if not outpath == "./": # .// would look strange in the output
-                outpath += "/"
-
-        output_folder = outpath.rsplit("/",1)[0]+"/" # Split output into folder and filename
-        output_file = outpath.rsplit("/",1)[1]
-
-        if len(output_file) > 0:
+        if (len(outpath.rsplit("/",1)) > 1):
+            output_folder = outpath.rsplit("/",1)[0]+"/" # Split output into folder and filename
+            output_file = outpath.rsplit("/",1)[1]
             Path(output_folder).mkdir(parents=True,exist_ok=True)
         if (ru32(input_buffer, 0) == 0x53504D43):
             un = decode_lzss_file(args.inpath, outpath)

@@ -62,7 +62,7 @@ def encode_lzss_file(input_file, output_file):
         file.write(encoded_data)
 
 parser = argparse.ArgumentParser(description='SS BIN Decompression/Compression') # I was bored
-parser.add_argument("--inpath", help="File Input (BIN/TPL)")
+parser.add_argument("inpath", help="File Input (BIN/TPL)")
 parser.add_argument("-o", "--outpath", type=str, default="", help="Optional. The name used for the output folder or file.")
 
 args = parser.parse_args()
